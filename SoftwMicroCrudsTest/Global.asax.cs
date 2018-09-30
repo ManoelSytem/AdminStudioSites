@@ -15,9 +15,8 @@ namespace SoftwMicroCrudsTest
             AreaRegistration.RegisterAllAreas();
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
-            BundleConfig.RegisterBundles(BundleTable.Bundles);
-
             BundleTable.EnableOptimizations = true;
+            BundleConfig.RegisterBundles(BundleTable.Bundles);
           
         }
     }

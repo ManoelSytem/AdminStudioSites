@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Threading.Tasks;
+using System.Web.Optimization;
 using Microsoft.Owin;
 using Microsoft.Owin.Security.Cookies;
 using Owin;
@@ -12,12 +13,12 @@ namespace SoftwMicroCrudsTest.App_Start
     {
         public void Configuration(IAppBuilder app)
         {
+
             app.UseCookieAuthentication(new CookieAuthenticationOptions
             {
                 AuthenticationType = "ApplicationCookie",
                 LoginPath = new PathString("/autenticacao/login")
             });
-
         }
     }
 }

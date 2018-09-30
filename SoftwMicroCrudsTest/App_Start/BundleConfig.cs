@@ -10,20 +10,41 @@ namespace SoftwMicroCrudsTest
         {
 
             //Style
+
+            bundles.Add(new StyleBundle("~/login/css").Include(
+                   "~/css/login/vendor/bootstrap/css/bootstrap.min.css",
+                   "~/css/login/vendor/animate/animate.css",
+                   "~/css/login/vendor/css-hamburgers/hamburgers.min.css",
+                   "~/css/login/vendor/animsition/css/animsition.min.css",
+                   "~/css/login/vendor/select2/select2.min.css",
+                   "~/css/login/vendor/daterangepicker/daterangepicker.css",
+                   "~/css/login/main.css",
+                   "~/css/login/util.css"));
+            
+            bundles.Add(new ScriptBundle("~/login/script").Include(
+                  "~/css/login/vendor/jquery/jquery-3.2.1.min.js",
+                  "~/css/login/vendor/animsition/js/animsition.min.js",
+                  "~/css/login/vendor/bootstrap/js/popper.js",
+                  "~/css/login/vendor/bootstrap/js/bootstrap.min.js",
+                  "~/css/login/vendor/select2/select2.min.js",
+                  "~/css/login/vendor/daterangepicker/moment.min.js",
+                  "~/css/login/vendor/daterangepicker/daterangepicker.js",
+                  "~/css/login/vendor/countdowntime/countdowntime.js",
+                  "~/js/login/main.js"
+                   ));
+
+
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/plugins/bootstrap/css/bootstrap.css",
                       "~/plugins/node-waves/waves.css",
                       "~/plugins/animate-css/animate.css",
                      "~/plugins/morrisjs/morris.css",
                      "~/css/style.css",
-                     "~/css/themes/all-themes.css",
-                     "~/css/login/main.css",
-                     "~/css/login/util.css"));
+                     "~/css/themes/all-themes.css"
+                     ));
 
-            bundles.Add(new StyleBundle("~/login/css").Include(
-                    "~/css/login/main.css",
-                    "~/css/login/util.css",
-                    "~/css/vendor/"));
+           
+
 
             //script
             bundles.Add(new ScriptBundle("~/bundles/script").Include(
@@ -51,7 +72,10 @@ namespace SoftwMicroCrudsTest
                         "~/js/demo.js"
                         ));
 
+            BundleTable.EnableOptimizations = true;
+
         }
+
 
     }
 }
