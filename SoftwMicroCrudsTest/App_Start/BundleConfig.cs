@@ -16,7 +16,14 @@ namespace SoftwMicroCrudsTest
                       "~/plugins/animate-css/animate.css",
                      "~/plugins/morrisjs/morris.css",
                      "~/css/style.css",
-                     "~/css/themes/all-themes.css"));
+                     "~/css/themes/all-themes.css",
+                     "~/css/login/main.css",
+                     "~/css/login/util.css"));
+
+            bundles.Add(new StyleBundle("~/login/css").Include(
+                    "~/css/login/main.css",
+                    "~/css/login/util.css",
+                    "~/css/vendor/"));
 
             //script
             bundles.Add(new ScriptBundle("~/bundles/script").Include(
@@ -41,7 +48,10 @@ namespace SoftwMicroCrudsTest
             bundles.Add(new ScriptBundle("~/bundles/js").Include(
                         "~/js/admin.js",
                         "~/js/pages/index.js",
-                        "~/js/demo.js"));
+                        "~/js/demo.js"
+                        ));
+
         }
+
     }
 }
