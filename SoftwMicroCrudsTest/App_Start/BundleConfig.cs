@@ -35,9 +35,9 @@ namespace SoftwMicroCrudsTest
 
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
-                      "~/plugins/bootstrap/css/bootstrap.css",
-                      "~/plugins/node-waves/waves.css",
-                      "~/plugins/animate-css/animate.css",
+                     "~/plugins/bootstrap/css/bootstrap.css",
+                     "~/plugins/node-waves/waves.css",
+                     "~/plugins/animate-css/animate.css",
                      "~/plugins/morrisjs/morris.css",
                      "~/css/style.css",
                      "~/css/themes/all-themes.css"
