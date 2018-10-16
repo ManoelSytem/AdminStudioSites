@@ -296,6 +296,8 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="plugins\animate-css\animate.css" />
+    <Content Include="plugins\animate-css\animate.min.css" />
     <Content Include="plugins\bootstrap-select\css\bootstrap-select.css" />
     <Content Include="plugins\bootstrap-select\css\bootstrap-select.min.css" />
     <Content Include="plugins\bootstrap-select\js\bootstrap-select.js" />
@@ -688,6 +690,7 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Autenticacao\Login.cshtml" />
     <Content Include="Views\Album\Index.cshtml" />
+    <Content Include="Views\Album\Create.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -33,7 +33,6 @@ namespace SoftwMicroCrudsTest
                   "~/js/login/main.js"
                    ));
 
-
             bundles.Add(new StyleBundle("~/Content/css").Include(
                      "~/plugins/bootstrap/css/bootstrap.css",
                      "~/plugins/node-waves/waves.css",
