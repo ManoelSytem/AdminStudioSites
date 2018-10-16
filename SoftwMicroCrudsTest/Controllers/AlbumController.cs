@@ -10,20 +10,20 @@ namespace SoftwMicroCrudsTest.Controllers
     public class AlbumController : Controller
     {
         // GET: Album
+        List<Album> albuns = new List<Album>();
+        
         public ActionResult Index()
         {
-           List<Album> albuns = new List<Album>
-        {
-            new Album(){ Codigo = 1, Nome = "Moda", DataCriacao = DateTime.Now,  },
-            new Album(){ Codigo = 2, Nome = "Eventos" , DataCriacao = DateTime.Now},
-            new Album(){ Codigo = 2, Nome = "Espetáculos", DataCriacao = DateTime.Now},
-            new Album(){ Codigo = 3, Nome = "Gestantes", DataCriacao = DateTime.Now },
-            new Album(){ Codigo = 4, Nome = "Parto", DataCriacao = DateTime.Now},
-            new Album(){ Codigo = 5, Nome = "Newborn", DataCriacao = DateTime.Now },
-            new Album(){ Codigo = 7, Nome = "Eventos", DataCriacao = DateTime.Now },
-            new Album(){ Codigo = 7, Nome = "Produtos", DataCriacao = DateTime.Now },
-            new Album(){ Codigo = 7, Nome = "Casal", DataCriacao = DateTime.Now },
-            };
+
+            albuns.Add(new Album(1,"Moda",DateTime.Now));
+            albuns.Add(new Album(2,"Eventos", DateTime.Now));
+            albuns.Add(new Album(3,"Espetáculos", DateTime.Now));
+            albuns.Add(new Album(4,"Gestantes", DateTime.Now));
+            albuns.Add(new Album(5,"Parto", DateTime.Now));
+            albuns.Add(new Album(6,"Newborn", DateTime.Now));
+            albuns.Add(new Album(7,"Eventos", DateTime.Now));
+            albuns.Add(new Album(8,"Produtos", DateTime.Now));
+            albuns.Add(new Album(9,"Casal", DateTime.Now));
 
             return View(albuns);
         }
@@ -36,25 +36,29 @@ namespace SoftwMicroCrudsTest.Controllers
         }
 
         // GET: Album/Create
+
         public ActionResult Create()
         {
-            var ModelAlbum = new Album
-            {  
-               DataCriacao = DateTime.Now
-            };
-
-            return View(ModelAlbum);
+            return View();
         }
 
         // POST: Album/Create
         [HttpPost]
-        public ActionResult Create(FormCollection collection)
+        [ValidateAntiForgeryToken]
+        public ActionResult Create(Album newAlbum)
         {
             try
             {
-                // TODO: Add insert logic here
+                if (ModelState.IsValid)
+                {
+                    albuns.Add(newAlbum);
+                    TempData["CreateSucesso"] = true;
+                    return RedirectToAction("Index");
+                }
+                else{ 
 
-                return RedirectToAction("Index");
+                    return View(newAlbum);
+                }
             }
             catch
             {

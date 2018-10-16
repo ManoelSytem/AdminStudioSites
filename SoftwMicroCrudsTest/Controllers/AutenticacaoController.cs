@@ -36,7 +36,8 @@ namespace SoftwMicroCrudsTest.Controllers
                 var identity = new ClaimsIdentity(new[] {
                     new Claim(ClaimTypes.Name,"Manoel"),
                     new Claim(ClaimTypes.Email,"manoelcontatosi@gmail.com"),
-                    new Claim(ClaimTypes.Email,"Brasil")
+                    new Claim(ClaimTypes.Email,"Brasil"),
+                    new Claim(ClaimTypes.NameIdentifier, "userId")
                 }, "ApplicationCookie");
 
                 var ctx = Request.GetOwinContext();
