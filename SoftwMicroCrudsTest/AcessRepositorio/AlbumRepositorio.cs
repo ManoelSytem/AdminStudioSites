@@ -37,5 +37,47 @@ namespace SoftwMicroCrudsTest.AcessRepositorio
 
             return albuns;
         }
+
+        private int Inserir(Album album)
+        {
+            const string commandText = " INSERT INTO tB_album (nome,data_criacao) VALUES (@nome,@data_criacao) ";
+
+            var parameters = new Dictionary<string, object>
+            {
+                {"nome", album.Nome},
+                {"data_criacao", album.DataCriacao}
+            };
+
+            return contexto.ExecutaComando(commandText, parameters);
+        }
+
+        private int Alterar(Album album)
+        {
+            var commandText = " UPDATE tB_album SET ";
+            commandText += " nome = @Nome ";
+            commandText += " data_atualizacao = @Data_atualizacao ";
+            commandText += " WHERE codigo = @Codigo ";
+
+
+            var parameters = new Dictionary<string, object>
+            {
+                {"Codigo",  album.Codigo},
+                 {"Nome",  album.Nome},
+                {"Data_atualizacao", album.DataAtualizacao}
+            };
+
+            return contexto.ExecutaComando(commandText, parameters);
+        }
+
+        public void Salvar(Album album)
+        {
+            if (album.Codigo > 0) { 
+                album.DataAtualizacao = DateTime.Now;
+                Alterar(album);
+            }
+            else
+                Inserir(album);
+        }
+
     }
 }

@@ -47,17 +47,19 @@ namespace SoftwMicroCrudsTest.Controllers
             {
                 if (ModelState.IsValid)
                 {
-                    //albuns.Add(newAlbum);
+                    newAlbum.DataCriacao = DateTime.Now;
+                    albumRepositorio.Salvar(newAlbum);
                     TempData["CreateSucesso"] = true;
                     return RedirectToAction("Index");
                 }
                 else{ 
 
-                    return View(newAlbum);
+                    return View();
                 }
             }
-            catch
+            catch(Exception e)
             {
+                TempData["Createfalse"] = e.Message;
                 return View();
             }
         }

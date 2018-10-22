@@ -22,55 +22,66 @@
                 </div>
             </div>
         </div>
-    }
-    <div class="row clearfix">
-        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-
-            <div class="card">
-                <div class="header">
-                    <a href="@Url.Action("Create","Album")" class="btn btn-primary waves-effect" role="button">Novo álbum</a>
-                    <ul class="header-dropdown m-r--5">
-                        <li class="dropdown">
-                            <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-                                <i class="material-icons">more_vert</i>
-                            </a>
-                            <ul class="dropdown-menu pull-right">
-                                <li><a href="javascript:void(0);" class=" waves-effect waves-block">Action</a></li>
-                                <li><a href="javascript:void(0);" class=" waves-effect waves-block">Another action</a></li>
-                                <li><a href="javascript:void(0);" class=" waves-effect waves-block">Something else here</a></li>
-                            </ul>
-                        </li>
-                    </ul>
-                </div>
-                <div class="body table-responsive">
-                    <table class="table table-striped">
-                        <thead>
-                            <tr>
-                                <th>#</th>
-                                <th>Nome</th>
-                                <th>Data de Criação / Atualização </th>
-                                <th>Ações</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            @foreach (var item in Model)
-                            {
-                                <tr>
-                                    <th scope="row">@item.Codigo</th>
-                                    <td>@item.Nome</td>
-                                    <td>@item.DataCriacao</td>
-                                    <td>
-                                        @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-                                        @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-                                        @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
-                                    </td>
-                                </tr>
-                            }
-                        </tbody>
-                    </table>
-                </div>
+    }@if (TempData["Createfalse"] != null)
+    {
+        <div class="card">
+            <div class="alert alert-danger">
+                <strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Ouve um problema no Sistema! </font></font></strong><font style="vertical-align: inherit;">
+                    <font style="vertical-align: inherit;">
+                        @TempData["Createfalse"].ToString();
+                    </font>
+                </font>
             </div>
         </div>
-    </div>
-</body>
+   }
+            <div class="row clearfix">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+
+                    <div class="card">
+                        <div class="header">
+                            <a href="@Url.Action("Create","Album")" class="btn btn-primary waves-effect" role="button">Novo álbum</a>
+                            <ul class="header-dropdown m-r--5">
+                                <li class="dropdown">
+                                    <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                                        <i class="material-icons">more_vert</i>
+                                    </a>
+                                    <ul class="dropdown-menu pull-right">
+                                        <li><a href="javascript:void(0);" class=" waves-effect waves-block">Action</a></li>
+                                        <li><a href="javascript:void(0);" class=" waves-effect waves-block">Another action</a></li>
+                                        <li><a href="javascript:void(0);" class=" waves-effect waves-block">Something else here</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="body table-responsive">
+                            <table class="table table-striped">
+                                <thead>
+                                    <tr>
+                                        <th>#</th>
+                                        <th>Nome</th>
+                                        <th>Data de Criação / Atualização </th>
+                                        <th>Ações</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var item in Model)
+                                    {
+                                        <tr>
+                                            <th scope="row">@item.Codigo</th>
+                                            <td>@item.Nome</td>
+                                            <td>@item.DataCriacao</td>
+                                            <td>
+                                                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                                                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+                                                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+                                            </td>
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </body>
 </html>
