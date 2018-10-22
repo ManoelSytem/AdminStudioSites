@@ -1,4 +1,5 @@
-﻿using SoftwMicroCrudsTest.Models;
+﻿using SoftwMicroCrudsTest.AcessRepositorio;
+using SoftwMicroCrudsTest.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,22 +11,17 @@ namespace SoftwMicroCrudsTest.Controllers
     public class AlbumController : Controller
     {
         // GET: Album
-        List<Album> albuns = new List<Album>();
-        
+        private AlbumRepositorio albumRepositorio;
+
+        public AlbumController()
+        {
+            albumRepositorio = new AlbumRepositorio();
+        }
         public ActionResult Index()
         {
 
-            albuns.Add(new Album(1,"Moda",DateTime.Now));
-            albuns.Add(new Album(2,"Eventos", DateTime.Now));
-            albuns.Add(new Album(3,"Espetáculos", DateTime.Now));
-            albuns.Add(new Album(4,"Gestantes", DateTime.Now));
-            albuns.Add(new Album(5,"Parto", DateTime.Now));
-            albuns.Add(new Album(6,"Newborn", DateTime.Now));
-            albuns.Add(new Album(7,"Eventos", DateTime.Now));
-            albuns.Add(new Album(8,"Produtos", DateTime.Now));
-            albuns.Add(new Album(9,"Casal", DateTime.Now));
-
-            return View(albuns);
+            var lista = albumRepositorio.ListarTodos();
+            return View(lista);
         }
 
         // GET: Album/Details/5
@@ -51,7 +47,7 @@ namespace SoftwMicroCrudsTest.Controllers
             {
                 if (ModelState.IsValid)
                 {
-                    albuns.Add(newAlbum);
+                    //albuns.Add(newAlbum);
                     TempData["CreateSucesso"] = true;
                     return RedirectToAction("Index");
                 }
